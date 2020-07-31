@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+.title_area{
+	width: 20%;
+}
+.body_area{
+	width: 45%;
+}
+.btn{
+	text-align: right;
+}
+.flash{
+	color: #CCFF33	;
+	font-size: 15px;
+}
