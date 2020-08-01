@@ -1,19 +1,28 @@
+<!-- サクセスメッセージ表示 -->
 <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
-    <% end %>
-    <div class = "index_area">
-<h2>Books</h2>
-<table>
-	<thead>
-		<tr>
+<% end %>
+<!-- エラー文表示 -->
+ <% @book.errors.full_messages.each do |message| %>
+            <div class="form-error">
+            	<%= "ERROR" %>
+              <%= message %>
+            </div>
+          <% end %>
+<!--　記事一覧  -->
+<div class = "index_area">
+  <h2>Books</h2>
+    <table>
+	   <thead>
+		 <tr>
 			<th>title</th>
 			<th>body</th>
-		</tr>
-	</thead>
-	<tbody>
-		<%= @books.each do |book| %>
+		 </tr>
+	   </thead>
+	  <tbody>
+		<% @books.each do |book| %>
 		<tr>
 			<td class="title_area"><%= book.title %></td>
 			<td class= "body_area"><%= book.body %></td>
@@ -22,9 +31,10 @@
 			<td class= "btn"><%= link_to "Destroy", destroy_book_path(book.id), method: :delete,"data-confirm" => "Are you sure?" %></td>
 		</tr>
 		<% end %>
-	</tbody>
-</table>
+	  </tbody>
+    </table>
 </div>
+<!-- 新規投稿 -->
 <h2>New book</h2>
 <%= form_for(@book,url: '/books') do |f| %>
 <h4>Title</h4>

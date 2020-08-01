@@ -1,11 +1,21 @@
+<!-- サクセスメッセージ表示 -->
   <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
-    <% end %>
+  <% end %>
+  <!-- エラーメッセージ表示 -->
+<% @book.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= "ERROR" %>
+              <%= message %>
+            </div>
+<% end %>
+<!-- 詳細画面 -->
 <h2>詳細画面</h2>
 <p>Title:<span><%= @book.title %></span></p>
 <p>Body:<span><%= @book.body %></span></p>
 
 <%= link_to "Edit", edit_book_path(@book.id) %>
+<%= "|" %>
 <%= link_to "Back", "/books"%>
