@@ -7,7 +7,7 @@
 <!-- エラー文表示 -->
  <% @book.errors.full_messages.each do |message| %>
             <div class="form-error">
-            	<%= "ERROR" %>
+            	<%= "error" %>
               <%= message %>
             </div>
           <% end %>
@@ -26,7 +26,7 @@
 		<tr>
 			<td class="title_area"><%= book.title %></td>
 			<td class= "body_area"><%= book.body %></td>
-			<td class= "btn"><%= link_to 'show', book_path(book.id) %></td>
+			<td class= "btn"><%= link_to 'Show', book_path(book.id) %></td>
 			<td class= "btn"><%= link_to "Edit", edit_book_path(book.id) %></td>
 			<td class= "btn"><%= link_to "Destroy", destroy_book_path(book.id), method: :delete,"data-confirm" => "Are you sure?" %></td>
 		</tr>
